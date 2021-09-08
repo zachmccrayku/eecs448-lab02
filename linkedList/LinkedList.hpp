@@ -1,6 +1,6 @@
 /**
-*	@author 
-*	@date 
+*	@author: Zachary McCray
+*	@date: 9/8/2021
 *	@file LinkedList.hpp
 *	@brief Implementation file for templated LinkedList class
 */
@@ -12,7 +12,7 @@ LinkedList<T>::LinkedList() : m_front(nullptr), m_size(0)
 }
 
 template <typename T>
-LinkedList<T>::~LinkedList() 
+LinkedList<T>::~LinkedList()
 {
 	while(!isEmpty())
 	{
@@ -41,18 +41,18 @@ int LinkedList<T>::size() const
 template <typename T>
 bool LinkedList<T>::search(T value) const
 {
-        Node<T>* temp = m_front;
-        bool isFound = false;
-        while(temp != nullptr)
+        Node<T>* temp = m_front; //sets the front
+        bool isFound = false; //initializes boolean
+        while(temp != nullptr) //checks to see if temp is empty
 	{
-                if(temp->getValue() == value)
+                if(temp->getValue() == value) //checks the current value
                 {
                         isFound == true;
-                        return(isFound)
+                        return(isFound) //returns the value if it's true
                 }
                 else
                 {
-                temp = temp->getNext();
+                temp = temp->getNext(); //continues to navigate the list
                 }
 	}
         return(isFound);
@@ -112,18 +112,18 @@ bool LinkedList<T>::removeBack()
 	Node<T>* lastNode = nullptr;
 	Node<T>* secondintoLast = nullptr;
 	bool isRemoved = false;
-	if(!isEmpty())
+	if(!isEmpty()) //checks to see if the list empty
 {
-	secondintoLast = m_front;
-	lastNode = m_front;
-	for(int i = 0; i < m_size-2; i++)
+	secondintoLast = m_front; //sets the second to last node
+	lastNode = m_front; //sets the last node
+	for(int i = 0; i < m_size-2; i++) //size doesn't include the final node
 	{
-	secondintoLast = secondintoLast->getNext();
+	secondintoLast = secondintoLast->getNext(); //gets the value
 	}
 	lastNode = secondintoLast->getNext();
-	delete lastNode;
-	m_size--;
-	secondintoLast->setNext(nullptr);
+	delete lastNode; //deletes the node
+	m_size--; //adjusts the size
+	secondintoLast->setNext(nullptr); //reconfigures the new last node
 	isRemoved = true;
 }
 	return(isRemoved);
