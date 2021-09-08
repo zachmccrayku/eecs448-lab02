@@ -48,7 +48,7 @@ bool LinkedList<T>::search(T value) const
                 if(temp->getValue() == value) //checks the current value
                 {
                         isFound == true;
-                        return(isFound) //returns the value if it's true
+                        return(isFound); //returns the value if it's true
                 }
                 else
                 {
